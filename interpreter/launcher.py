@@ -22,18 +22,24 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>
 '''
 
-__version__ = "0.1"
-
-
 # --------------------------------------------------------------------------- #
 # Import libraries
 # --------------------------------------------------------------------------- #
 import os
-import os.path
 import sys
 import json
 import importlib
 from pathlib import Path
+
+# import Qt
+from PyQt5 import QtWidgets, QtGui, QtCore, QtSvg, QtWebEngineWidgets
+from PyQt5.QtCore import Qt
+
+
+# --------------------------------------------------------------------------- #
+# Declare module globals
+# --------------------------------------------------------------------------- #
+__version__ = "0.1"
 
 
 # --------------------------------------------------------------------------- #
