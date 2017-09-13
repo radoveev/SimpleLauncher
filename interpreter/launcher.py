@@ -32,7 +32,8 @@ import importlib
 from pathlib import Path
 
 # import Qt
-from PyQt5 import QtWidgets, QtGui, QtCore, QtSvg, QtWebEngineWidgets
+from PyQt5 import (QtWidgets, QtGui, QtCore, QtSvg, QtChart,
+                   QtWebEngineCore, QtWebEngineWidgets)
 from PyQt5.QtCore import Qt
 
 
@@ -56,3 +57,4 @@ targetpackage = settings["launch"]
 
 # launch target application
 importlib.import_module(targetpackage)
+# TODO: show nice error if this fails

@@ -44,6 +44,8 @@ for libname in stdlib_list("3.6"):
 #includes = imported_stdlib + ["xml.parsers.expat.errors"]
 
 # Dependencies are automatically detected, but it might need fine tuning.
+# TODO exclude helloworld.py
+# TOOD the launcher exclude is unnecessary, right?
 build_exe_options = {"packages": imported_stdlib,
                      "excludes": ["launcher", "tkinter", "tcl"]}
 
@@ -65,3 +67,5 @@ setup(
                  "Comes with Qt included."),
     options={"build_exe": build_exe_options},
     executables=[exe])
+
+# TODO assemble a distributable version from the build
