@@ -7,6 +7,11 @@ cx_Freeze is cross platform, but this script currently only supports windows
 It requires stdlib_list to be available to your python installation. You can
 install it via pip:
     pip install stdlib_list
+
+
+TODO
+  * the Qt plugins, like qwindows.dll, are copied twice to the packaged version
+    the DLLs in PyQt5/Qt/plugins/ are actually used
 '''
 
 # import libraries
