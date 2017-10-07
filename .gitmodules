@@ -1,0 +1,3 @@
+[submodule "pythonsrc"]
+	path = pythonsrc
+	url = git@github.com:radoveev/pyprinciple.git
