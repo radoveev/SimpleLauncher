@@ -25,7 +25,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 # --------------------------------------------------------------------------- #
 # Import libraries
 # --------------------------------------------------------------------------- #
-import os
 import sys
 import json
 import importlib
@@ -46,14 +45,19 @@ __version__ = "0.1"
 # --------------------------------------------------------------------------- #
 # Import python module or package
 # --------------------------------------------------------------------------- #
+module_path = Path(__file__)  # absolute path to this file
+
+# load settings
+settings_path = (module_path.parent / "launchersettings.json").resolve()
+with settings_path.open() as f:
+    settings = json.load(f)
+
 # append the directory for python packages to the python path
-cwd = Path(os.getcwd()).resolve()
-sys.path.append(str(cwd.parent / "pythonsrc"))
+srcdirpath = (module_path.parent / settings["source_directory"]).resolve()
+sys.path.append(str(srcdirpath))
 
 # determine target application name from settings
-with Path("../launchersettings.json").resolve().open() as f:
-    settings = json.load(f)
-targetpackage = settings["launch"]
+targetpackage = settings["launch_module"]
 
 # launch target application
 importlib.import_module(targetpackage)
