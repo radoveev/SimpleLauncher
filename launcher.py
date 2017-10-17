@@ -39,21 +39,22 @@ from PyQt5.QtCore import Qt
 # --------------------------------------------------------------------------- #
 # Declare module globals
 # --------------------------------------------------------------------------- #
-__version__ = "0.1"
+__version__ = "0.2"
 
 
 # --------------------------------------------------------------------------- #
 # Import python module or package
 # --------------------------------------------------------------------------- #
-module_path = Path(__file__)  # absolute path to this file
+module_path = Path(__file__).resolve()  # absolute path to this file
+launcher_parent = module_path.parent.parent
 
 # load settings
-settings_path = (module_path.parent / "launchersettings.json").resolve()
+settings_path = (launcher_parent / "launchersettings.json").resolve()
 with settings_path.open() as f:
     settings = json.load(f)
 
 # append the directory for python packages to the python path
-srcdirpath = (module_path.parent / settings["source_directory"]).resolve()
+srcdirpath = (launcher_parent / settings["source_directory"]).resolve()
 sys.path.append(str(srcdirpath))
 
 # determine target application name from settings
